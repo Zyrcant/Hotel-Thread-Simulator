@@ -72,7 +72,6 @@ public class Project2
 			frontdesk[i] = new Thread(new FrontDesk(i));
 			System.out.println("Front desk employee " + i + " created");
 			frontdesk[i].start();
-			delay();
 		}
 
 		for(int i = 0; i < numBellhops; i++)
@@ -80,14 +79,12 @@ public class Project2
 			bellhops[i] = new Thread(new Bellhop(i));
 			System.out.println("Bellhop " + i + " created");
 			bellhops[i].start();
-			delay();
 		}
 
 		for(int i = 0; i < numGuests; i++)
 		{
 			guests[i] = new Thread(new Guest(i));
 			System.out.println("Guest " + i + " created");
-			delay();
 		}
 
 
@@ -117,16 +114,6 @@ public class Project2
 		System.out.println("Simulation ends");
 		System.exit(0);
 
-	}
-
-	//delays threads so output is cleaner
-	public static void delay()
-	{
-		try
-		{
-			Thread.sleep(20);
-		}
-		catch (InterruptedException e) { }
 	}
 
 	//Guest class
